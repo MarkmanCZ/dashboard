@@ -1,6 +1,5 @@
 <?php
 
-include 'Session.php';
 
 class UpdateUserController extends UpdateUser {
 
@@ -34,6 +33,9 @@ class UpdateUserController extends UpdateUser {
             }
         }
         $this->updateUserData($this->nickname, $this->name, $this->email, $this->password, $this->group, $this->id);
+        session_start();
+        session_reset();
+        $_SESSION['user_data'] = $this->getUser($this->id);
     }
 
 

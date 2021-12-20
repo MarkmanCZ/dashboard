@@ -17,12 +17,15 @@ class UpdateUser extends Database{
             $run = $stmt->execute(array(":nick"=>$username, ":name"=>$name, ":email"=>$email, ":group"=>$group, ":id"=>$id));
             $stmt = null;
         }
-
-
     }
     //repair
-    protected function getUser() {
-        $stmt = $this->connect()->prepare("SELECT * FROM db_admin;");
+    public function getUser($id) {
+        $stmt = $this->connect()->prepare("SELECT * FROM db_admin WHERE id = ?;");
+        if(!$stmt->execute(array($id))) {
+            $stmt = null;
+            header("location: ../profile.php?error=stmtproblem");
+            exit();
+        }
         $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt = null;
         return $user[0];

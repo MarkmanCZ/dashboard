@@ -14,6 +14,7 @@ class LoginUser extends Database{
         }
         if($stmt->rowCount() == 0) {
             $stmt = null;
+            //to do repair
             header("location: ../login.php?error=neniuzivatel");
             exit();
         }
