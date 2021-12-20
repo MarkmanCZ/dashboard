@@ -19,7 +19,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="group" class="form-label">Group</label>
-                        <input type="text" class="form-control" name="group" placeholder="Write group.."  value="<?= $_SESSION['user_data']['uGroup']?>">
+                        <input type="text" class="form-control" readonly name="group" placeholder="Write group.."  value="<?= $_SESSION['user_data']['uGroup']?>">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>

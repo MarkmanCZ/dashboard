@@ -1,10 +1,7 @@
 <?php
 
-include 'Session.php';
-
 class LoginUser extends Database{
 
-    private $session;
 
     protected function getUser($login_name, $password) {
         $stmt = $this->connect()->prepare("SELECT uPassword FROM db_admin WHERE uNick = ? OR uEmail = ?;");
@@ -29,8 +26,7 @@ class LoginUser extends Database{
             header("location: ../login.php?error=spatneheslo");
             exit();
         }else if($checkPassword == true) {
-            $stmt = $this->connect()->prepare("SELECT * FROM db_admin 
-            WHERE uNick = ? OR uEmail = ? AND uPassword = ?;");
+            $stmt = $this->connect()->prepare("SELECT * FROM db_admin WHERE uNick = ? OR uEmail = ? AND uPassword = ?;");
 
             if(!$stmt->execute(array($login_name, $login_name, $password))) {
                 $stmt = null;
@@ -44,13 +40,11 @@ class LoginUser extends Database{
             }
 
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            session_start();
+            $_SESSION['user_data'] = $user[0];
 
-            $this->session = new Session();
-            $this->session->setSession($user[0], "user_data");
             $stmt = null;
         }
-
         $stmt = null;
     }
-
 }

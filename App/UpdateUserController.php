@@ -11,7 +11,6 @@ class UpdateUserController extends UpdateUser {
     private $passwordConfirm;
     private $group;
     private $id;
-    private $session;
 
     public function __construct($nickname, $name, $email, $password, $passwordConfirm,  $group, $id) {
         $this->nickname = $nickname;

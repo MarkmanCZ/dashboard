@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- !CSS LINK! -->
     <?php include 'App/Config.php';?>
-    <?php session_start();?>
+    <?php
+        session_start();
+    ?>
 </head>
 <body>
     <!-- NAV -->
@@ -41,7 +43,7 @@
                         <li class="nav-item mx-md-2 my-2 my-md-0">
                             <a href="/profile.php" class="btn btn-primary text-white fw-bolder">profile</a>
                         </li>
-                        <li class="nav-item mx-md-2 my-2 my-md-0">
+                        <li class="nav-item">
                             <a href="/profile.php" class="btn btn-primary text-white fw-bolder">logout</a>
                         </li>
 

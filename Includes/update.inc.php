@@ -21,8 +21,10 @@ if(isset($_POST['submit'])) {
     //run function
     $update->updateUser();
 
+    session_start();
+    session_destroy();
     //return
-    header("location: ../profile.php");
+    header("location: ../login.php");
     exit();
 
 }else {
