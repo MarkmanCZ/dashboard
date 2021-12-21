@@ -5,6 +5,9 @@ include 'header.php';
 <!-- SECTION MAIN -->
 <section id="main">
     <div class="container">
+        <?php
+            include 'Includes/validators.inc.php';
+        ?>
         <div class="container w-50 p-3 img-thumbnail mt-3">
             <form action="Includes/login.inc.php" method="post">
                 <h1>Login</h1>

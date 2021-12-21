@@ -1,6 +1,9 @@
 <!-- SECTION MAIN -->
 <section id="main">
     <div class="container">
+        <?php
+            include root_url . 'Includes/validators.inc.php';
+        ?>
         <div class="container w-50 p-3 img-thumbnail mt-3">
             <form action="../Includes/update.inc.php" method="post">
                 <h1>Profil</h1>

@@ -30,11 +30,11 @@ class SignupAdminContr extends SignupAdmin{
             exit();
         }
         if($this->pwdMatch() == false) {
-            header("location: ../index.php?error=hesla&neshoda");
+            header("location: ../index.php?error=neshodahesel");
             exit();
         }
         if($this->usernameTaken() == false) {
-            header("location: ../index.php?error=prezdivkaemail&pouzit");
+            header("location: ../index.php?error=prezdivkaemail");
             exit();
         }
 

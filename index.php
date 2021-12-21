@@ -7,7 +7,8 @@
         <div class="container">
             <?php
                 if(wizard_mode) {
-            ?>
+                        include 'Includes/validators.inc.php';
+                    ?>
                     <div class="container w-50 p-3 img-thumbnail mt-3">
                         <form action="Includes/index.inc.php" method="post">
                             <h1>Administrator account</h1>
