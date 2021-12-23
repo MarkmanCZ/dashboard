@@ -2,12 +2,11 @@
 
 class LoginUser extends Database{
 
-
     protected function getUser($login_name, $password) {
-        $stmt = $this->connect()->prepare("SELECT uPassword FROM db_admin WHERE uNick = ? OR uEmail = ?;");
+        $stmt = $this->connect()->prepare("SELECT uPassword FROM db_admin WHERE uNick = :login OR uEmail = :login;");
 
         //to do repair login thru email not working
-        if(!$stmt->execute(array($login_name, $password))) {
+        if(!$stmt->execute(array(':login' => $login_name, $password))) {
             $stmt = null;
             header("location: ../login.php?error=stmtproblem");
             exit();
